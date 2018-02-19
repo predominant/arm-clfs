@@ -73,7 +73,9 @@ function download_package() {
   build_line "OK" "green"
 }
 
-if [[ $EUID -ne 0 ]]; then
-  build_line "This script is designed to be run as root. Please open a root shell before continuing" "red"
-  exit 1
-fi
+function expect_user() {
+  if [[ "${USER}" != "${1}" ]]; then
+    build_line "This script is designed to be run as ${$1}." "red"
+    exit 1
+  fi
+}
