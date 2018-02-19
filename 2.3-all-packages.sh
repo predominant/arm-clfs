@@ -12,31 +12,13 @@ declare -A SOURCES=(
   ["https://ftp.gnu.org/gnu/mpc/mpc-1.0.3.tar.gz"]=d6a1d5f8ddea3abd2cc3e98f58352d26
   ["https://ftp.gnu.org/gnu/mpfr/mpfr-3.1.4.tar.bz2"]=b8a2f6b0e68bef46e53da2ac439e1cf4
   ["http://www.musl-libc.org/releases/musl-1.1.16.tar.gz"]=ac52ccaec6b06ab0f289d37e8436859b
-
-  ["http://patches.clfs.org/embedded-dev/iana-etc-2.30-update-2.patch"]=8bf719b313053a482b1e878b75dfc07e
 )
 
-build_line "Fetching sources .."
+build_line "i Fetching sources .."
 
 for URL in "${!SOURCES[@]}"; do
-  CHECKSUM="${SOURCES[${URL}]}"
-  FILENAME="${URL##*/}"
-  build_line "  - ${FILENAME} " "blue" 0
-
-  wget --quiet --show-progress -O "${CLFS}/sources/${FILENAME}" "${URL}"
-  if [ $? -ne 0 ]; then
-    build_line "x ERROR while downloading ${URL}" "red"
-    build_line "x Exiting" "red"
-    exit 1
-  fi
-
-  sum_calculated=$(md5sum "${CLFS}/${FILENAME}" | awk '{print $1}')
-  if [ "x${sum_calculated}" != "x${CHECKSUM}" ]; then
-    build_line "x FAILED checksum validation for ${URL}" "red"
-    exit 1
-  fi
-
-  build_line "OK" "green"
+  download_package "${URL}" "${SOURCES[${URL}]}"
 done
 
-wget --quiet --show-progress -O "${CLFS}/bootscripts-embedded.tar.gz" "http://git.clfs.org/?p=bootscripts-embedded.git;a=snapshot;h=HEAD;sf=tgz"
+build_line "i Fetching bootscripts"
+wget --quiet -O "${CLFS}/bootscripts-embedded.tar.gz" "http://git.clfs.org/?p=bootscripts-embedded.git;a=snapshot;h=HEAD;sf=tgz"
