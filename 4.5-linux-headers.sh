@@ -12,3 +12,5 @@ make ARCH=${CLFS_ARCH} headers_check
 make ARCH=${CLFS_ARCH} INSTALL_HDR_PATH=${CLFS}/cross-tools/${CLFS_TARGET} headers_install
 popd
 popd
+
+rm -rf "${CLFS}/sources/linux-4.9.22"

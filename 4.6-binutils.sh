@@ -22,3 +22,5 @@ make
 make install
 popd
 popd
+
+rm -rf "${CLFS}/sources/binutils-2.27"

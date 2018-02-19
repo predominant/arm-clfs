@@ -2,7 +2,7 @@
 
 . _common.sh
 
-build_line "Musl .."
+build_line "i Musl .."
 
 pushd "${CLFS}/sources"
 tar zxf musl-1.1.16.tar.gz
@@ -17,3 +17,5 @@ DESTDIR=${CLFS}/cross-tools/${CLFS_TARGET} make install
 
 popd
 popd
+
+rm -rf "${CLFS}/sources/musl-1.1.16"

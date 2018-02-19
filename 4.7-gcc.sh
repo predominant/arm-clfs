@@ -2,7 +2,7 @@
 
 . _common.sh
 
-build_line "GCC .."
+build_line "i GCC .."
 
 pushd "${CLFS}/sources"
 tar jxf gcc-6.2.0.tar.bz2
@@ -52,4 +52,5 @@ make all-gcc all-target-libgcc
 make install-gcc install-target-libgcc
 popd
 
-
+rm -rf "${CLFS}/sources/gcc-6.2.0"
+rm -rf "${CLFS}/sources/gcc-build"

@@ -2,7 +2,22 @@
 
 . _common.sh
 
-build_line "GCC Final .."
+build_line "i GCC Final .."
+
+pushd "${CLFS}/sources"
+tar jxf gcc-6.2.0.tar.bz2
+pushd gcc-6.2.0
+tar jxf ../mpfr-3.1.4.tar.bz2
+mv -v mpfr-3.1.4 mpfr
+tar jxf ../gmp-6.1.1.tar.bz2
+mv -v gmp-6.1.1 gmp
+tar zxf ../mpc-1.0.3.tar.gz
+mv -v mpc-1.0.3 mpc
+popd
+
+pushd "${CLFS}/sources/gcc-6.2.0"
+patch -Np1 -i ../gcc-6.2.0-update-1.patch
+popd
 
 build_dir="${CLFS}/sources/gcc-build"
 mkdir -p "${build_dir}"
@@ -29,3 +44,6 @@ pushd "${build_dir}"
 make
 make install
 popd
+
+rm -rf "${CLFS}/sources/gcc-6.2.0"
+rm -rf "${CLFS}/sources/gcc-build"
