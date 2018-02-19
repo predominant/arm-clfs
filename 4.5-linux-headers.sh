@@ -2,7 +2,7 @@
 
 . _common.sh
 
-build_line "Linux headers .."
+build_line "i Linux headers .."
 
 pushd "${CLFS}/sources"
 tar Jxf linux-4.9.22.tar.xz

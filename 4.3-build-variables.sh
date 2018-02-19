@@ -2,6 +2,8 @@
 
 . _common.sh
 
+build_line "i Setting up build variables .."
+
 cat  > ~/.clfs_build_variables << EOF
 export CLFS_FLOAT="hard"
 export CLFS_FPU="vfp"

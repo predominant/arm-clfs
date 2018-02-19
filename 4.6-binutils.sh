@@ -2,7 +2,7 @@
 
 . _common.sh
 
-build_line "Binutils .."
+build_line "i Binutils .."
 
 build_dir="${CLFS}/sources/binutils-build"
 mkdir -p "${build_dir}"
