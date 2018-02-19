@@ -2,7 +2,7 @@
 
 . _common
 
-build_line "Install musl .."
+build_line "i Install musl .."
 pushd "${CLFS}/sources"
 tar zxf musl-1.1.16.tar.gz
 pushd musl-1.1.16

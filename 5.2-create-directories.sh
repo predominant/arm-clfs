@@ -2,7 +2,7 @@
 
 . _common.sh
 
-build_line "Create directories .."
+build_line "i Create directories .."
 
 mkdir -p "${CLFS}"/targetfs/{bin,boot,dev,etc,home,lib/{firmware,modules}}
 mkdir -p "${CLFS}"/targetfs/{mnt,opt,proc,sbin,srv,sys}

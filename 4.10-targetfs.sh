@@ -2,6 +2,6 @@
 
 . _common.sh
 
-build_line "Target Filesystem creation .."
+build_line "i Target Filesystem creation .."
 
 mkdir -p "${CLFS}/targetfs"

@@ -2,15 +2,15 @@
 
 . _common.sh
 
-build_line "Setup mtab .."
+build_line "i Setup mtab .."
 ln -sf /proc/mounts "${CLFS}/targetfs/etc/mtab"
 
-build_line "Setup passwd file .."
+build_line "i Setup passwd file .."
 cat > "${CLFS}/targetfs/etc/passwd" << EOF
 root::0:0:root:/root:/bin/ash
 EOF
 
-build_line "Setup group file .."
+build_line "i Setup group file .."
 cat > "${CLFS}/targetfs/etc/group" << "EOF"
 root:x:0:
 bin:x:1:
@@ -30,6 +30,6 @@ usb:x:14:
 cdrom:x:15:
 EOF
 
-build_line "Setup lastlog file .."
+build_line "i Setup lastlog file .."
 touch "${CLFS}/targetfs/var/log/lastlog"
 chmod -v 664 "${CLFS}/targetfs/var/log/lastlog"

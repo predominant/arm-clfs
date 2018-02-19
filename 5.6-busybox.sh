@@ -2,7 +2,7 @@
 
 . _common.sh
 
-build_line "Install busybox .."
+build_line "i Install busybox .."
 
 pushd "${CLFS}/sources"
 tar jxf busybox-1.24.2.tar.bz2

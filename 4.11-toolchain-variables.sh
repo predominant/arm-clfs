@@ -2,7 +2,7 @@
 
 . _common.sh
 
-build_line "Toolchain variables .."
+build_line "i Toolchain variables .."
 
 echo export CC=\""${CLFS_TARGET}-gcc --sysroot=${CLFS}/targetfs\"" >> ~/.bashrc
 echo export CXX=\""${CLFS_TARGET}-g++ --sysroot=${CLFS}/targetfs\"" >> ~/.bashrc
