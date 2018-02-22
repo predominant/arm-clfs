@@ -13,6 +13,7 @@ declare -A SOURCES=(
   ["https://ftp.gnu.org/gnu/mpfr/mpfr-3.1.4.tar.bz2"]=b8a2f6b0e68bef46e53da2ac439e1cf4
   ["http://www.musl-libc.org/releases/musl-1.1.16.tar.gz"]=ac52ccaec6b06ab0f289d37e8436859b
   ["https://ftp.gnu.org/gnu/wget/wget-1.19.tar.xz"]=1814393c5955a6148ff6d82c4a9e3c21
+  ["https://www.openssl.org/source/openssl-1.1.0g.tar.gz"]=ba5f1b8b835b88cadbce9b35ed9531a6
 )
 
 build_line "i Fetching sources .."
@@ -22,7 +23,7 @@ for URL in "${!SOURCES[@]}"; do
 done
 
 build_line "i Fetching bootscripts"
-wget --quiet -O "${CLFS}/bootscripts-embedded.tar.gz" "http://git.clfs.org/?p=bootscripts-embedded.git;a=snapshot;h=HEAD;sf=tgz"
+wget --quiet -O "${CLFS}/sources/bootscripts-embedded.tar.gz" "http://git.clfs.org/?p=bootscripts-embedded.git;a=snapshot;h=HEAD;sf=tgz"
 
 build_line "i Fetching cacert.pem"
-wget --quiet -O "${CLFS}/cacert.pem" "https://curl.haxx.se/ca/cacert.pem"
+wget --quiet -O "${CLFS}/sources/cacert.pem" "https://curl.haxx.se/ca/cacert.pem"
