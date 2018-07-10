@@ -16,4 +16,4 @@ CHOST="armv6j-hardfloat-linux-gnueabi"
 
 # References
 
-* [http://clfs.org/view/clfs-embedded/arm/](Cross-Compiled Linux From Scrarch - Embedded)
+* [Cross-Compiled Linux From Scrarch - Embedded](http://clfs.org/view/clfs-embedded/arm/)
