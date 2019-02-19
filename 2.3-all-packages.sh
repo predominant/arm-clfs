@@ -1,6 +1,7 @@
 #!/bin/bash
 
-. _common.sh
+SCRIPTDIR="$(dirname "${0}")"
+. "${SCRIPTDIR}/_common.sh"
 
 declare -A SOURCES=(
   ["https://ftp.gnu.org/gnu/binutils/binutils-2.27.tar.bz2"]=2869c9bf3e60ee97c74ac2a6bf4e9d68

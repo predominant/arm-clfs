@@ -2,33 +2,43 @@ export CLFS="/mnt/clfs"
 export CLFSUSER="clfs"
 export CLFSCACHE="${CLFS}/sources"
 
-red='\033[0;31m'
-green='\033[0;32m'
-blue='\033[0;34m'
-yellow='\033[0;33m'
-nc='\033[0m'
+build_line() {
+  local red='\033[0;31m'
+  local green='\033[0;32m'
+  local blue='\033[0;34m'
+  local yellow='\033[0;33m'
+  local nc='\033[0m'
 
-function build_line() {
-  newline="${3:-1}"
-  color_str="${2:-green}"
-  color="${!color_str}"
+  local newline="${3:-1}"
+  local color="${green}"
+  case $color_str in
+    red)
+      color="${red}"
+      ;;
+    blue)
+      color="${blue}"
+      ;;
+    yellow)
+      color="${yellow}"
+      ;;
+  esac
 
   if [ "${newline}" -eq 1 ]; then
     echo -e "${color}${1}${nc}"
   else
-    echo -n -e "${color}${1}${nc}"
+    printf "${color}${1}${nc}"
   fi
 }
 
-function clfs_user() {
-  current_user=$(whoami)
+clfs_user() {
+  local current_user=$(whoami)
   if [ "${current_user}" != "${CLFSUSER}" ]; then
     build_line "i Changing to clfs user .."
     su - "${CLFSUSER}"
   fi
 }
 
-function checksum_file() {
+checksum_file() {
   local FILENAME=$1
   local CHECKSUM=$2
 
@@ -39,7 +49,7 @@ function checksum_file() {
   true
 }
 
-function download_package() {
+download_package() {
   local URL=$1
   local CHECKSUM=$2
   local FILENAME="${URL##*/}"
@@ -73,7 +83,7 @@ function download_package() {
   build_line "OK" "green"
 }
 
-function expect_user() {
+expect_user() {
   if [[ "${USER}" != "${1}" ]]; then
     build_line "This script is designed to be run as ${$1}." "red"
     exit 1

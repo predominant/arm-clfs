@@ -1,6 +1,7 @@
 #!/bin/bash
 
-. _common.sh
+SCRIPTDIR="$(dirname "${0}")"
+. "${SCRIPTDIR}/_common.sh"
 
 build_line "i OpenSSL install .. "
 pushd "${CLFS}/sources"

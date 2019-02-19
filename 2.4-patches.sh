@@ -1,6 +1,7 @@
 #!/bin/bash
 
-. _common.sh
+SCRIPTDIR="$(dirname "${0}")"
+. "${SCRIPTDIR}/_common.sh"
 
 declare -A SOURCES=(
   ["http://patches.clfs.org/embedded-dev/iana-etc-2.30-update-2.patch"]=8bf719b313053a482b1e878b75dfc07e
