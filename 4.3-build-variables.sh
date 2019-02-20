@@ -16,4 +16,8 @@ export CLFS_ARM_ARCH="armv6j"
 EOF
 
 echo ". ${HOME}/.clfs_build_variables" >> "${HOME}/.bashrc"
-source "${HOME}/.clfs_build_variables"
+
+build_line "e Please re-login to the ${CLFSUSER} before continuing:" red
+build_line "  Run:     exit" red
+build_line "  Run:     sudo su - ${CLFSUSER}" red
+exit 2
