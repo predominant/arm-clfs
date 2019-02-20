@@ -4,7 +4,8 @@ SCRIPTDIR="$(dirname "${0}")"
 . "${SCRIPTDIR}/_common.sh"
 
 build_line "Installing prerequisite tooling .."
-sudo apt-get install ${APT_OPTS:--y} \
+sudo apt install ${APT_OPTS:--y} \
   libncurses5-dev \
-  info \
+  texinfo \
+  m4 \
   build-essential
