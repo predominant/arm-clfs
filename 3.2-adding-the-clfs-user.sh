@@ -9,7 +9,7 @@ sudo useradd -s /bin/bash -g "${CLFSUSER}" -m -k /dev/null "${CLFSUSER}"
 sudo chown -Rv "${CLFSUSER}" "${CLFS}"
 
 build_line "i Setup the clfs user password"
-usermod --password $(echo ${CLFSUSER} | openssl passwd -1 -stdin) ${CLFSUSER}
+sudo usermod --password $(echo ${CLFSUSER} | openssl passwd -1 -stdin) ${CLFSUSER}
 
 # build_line "i Switching users"
 # su - "${CLFSUSER}"
