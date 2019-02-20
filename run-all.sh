@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -euo pipefail
+set -uo pipefail
 
 export CLFSROOT=/opt/arm-clfs
 export DEBIAN_PRIORITY=critical
@@ -29,7 +29,20 @@ run_step() {
   echo "----------------------------------------------------------------------"
 
   "${step_script}"
-  touch "${lock_file}"
+
+  local status=$?
+  if [ $status -eq 0 ] || [ $status -eq 2 ]; then
+    # Touch the lock file to indicate completion for status 0 or 2.
+    # 0 indicates success
+    # 2 is used for success, but specifies a stop / restart is required for
+    #   some reason.
+    touch "${lock_file}"
+  fi
+  
+  if [ $status -ne 0 ]; then
+    exit $status
+  fi
+  return $status
 }
 
 run_step 0.0-package-update
