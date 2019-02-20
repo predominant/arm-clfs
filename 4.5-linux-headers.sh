@@ -3,10 +3,11 @@
 SCRIPTDIR="$(dirname "${0}")"
 . "${SCRIPTDIR}/_common.sh"
 
-build_line "i Linux headers .."
+clfs_user
 
+build_line "i Linux headers .."
 pushd "${CLFS}/sources"
-tar Jxf linux-4.9.22.tar.xz
+tar xf linux-4.9.22.tar.xz
 pushd linux-4.9.22
 make mrproper
 make ARCH=${CLFS_ARCH} headers_check

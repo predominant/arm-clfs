@@ -11,6 +11,7 @@ build_line() {
 
   local newline="${3:-1}"
   local color="${green}"
+  local color_str="${2:-green}"
   case $color_str in
     red)
       color="${red}"
@@ -33,8 +34,9 @@ build_line() {
 clfs_user() {
   local current_user=$(whoami)
   if [ "${current_user}" != "${CLFSUSER}" ]; then
-    build_line "i Changing to clfs user .."
-    su - "${CLFSUSER}"
+    build_line "e Please switch to the ${CLFSUSER} before continuing:" red
+    build_line "  Run:     sudo su - ${CLFSUSER}" red
+    exit 1
   fi
 }
 
