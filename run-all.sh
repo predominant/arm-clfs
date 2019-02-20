@@ -54,8 +54,6 @@ run_step 2.3-all-packages
 run_step 2.4-patches
 run_step 3.2-adding-the-clfs-user
 run_step 3.3-setting-up-the-environment
-run_step 4.10-targetfs
-run_step 4.11-toolchain-variables
 run_step 4.2-build-cflags
 run_step 4.3-build-variables
 run_step 4.4-sysroot-directory
@@ -64,6 +62,8 @@ run_step 4.6-binutils
 run_step 4.7-gcc
 run_step 4.8-musl
 run_step 4.9-gcc-final
+run_step 4.10-targetfs
+run_step 4.11-toolchain-variables
 run_step 5.2-create-directories
 run_step 5.3-passwd-group-lastlog
 run_step 5.4-libgcc
