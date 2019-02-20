@@ -10,8 +10,7 @@ diff --version | head -n1
 find --version | head -n1
 gawk --version | head -n1
 gcc --version | head -n1
-ldd $(which ${SHELL}) | grep libc.so | cut -d ' ' -f 3 | ${SHELL} | head -n 1 \
-| cut -d ' ' -f 1-10
+ldd $(which ${SHELL}) | grep libc.so | cut -d ' ' -f 3 | ${SHELL} | head -n 1 | cut -d ' ' -f 1-10
 grep --version | head -n1
 gzip --version | head -n1
 m4 --version | head -n1
