@@ -6,11 +6,11 @@ SCRIPTDIR="$(dirname "${0}")"
 clfs_user
 
 build_line "i Setting up the CLFS user environment .."
-cat > ~/.bash_profile << "EOF"
+cat > "${HOME}/.bash_profile" << "EOF"
 exec env -i HOME="${HOME}" TERM="${TERM}" PS1='\u:\w\$ ' /bin/bash
 EOF
 
-cat > ~/.bashrc << EOF
+cat > "${HOME}/.bashrc" << EOF
 set +h
 umask 022
 CLFS=${CLFS}
